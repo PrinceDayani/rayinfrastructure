@@ -1,119 +1,108 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ProjectCards from "../components/Credentials";
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Link } from "react-router-dom";
 
-// Reusable Styles
-const buttonStyle = {
-  fontSize: "1rem",
-  padding: "0.8rem 1.5rem",
-  borderRadius: "30px",
-  cursor: "pointer",
-  border: "none",
+// Animation variants
+const animations = {
+  fadeInUp: {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  },
+  fadeInLeft: {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8 }
+    }
+  },
+  fadeInRight: {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8 }
+    }
+  },
+  scaleIn: {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { 
+      opacity: 1, 
+      scale: 1,
+      transition: { duration: 0.5 }
+    }
+  }
 };
 
-const redButtonStyle = {
-  ...buttonStyle,
-  backgroundColor: "#c00",
-  color: "white",
+// Custom hook for carousel
+const useCarousel = (images, interval = 5000) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [images.length, interval]);
+
+  return currentIndex;
 };
 
-const outlineButtonStyle = {
-  ...buttonStyle,
-  backgroundColor: "transparent",
-  border: "2px solid white",
-  color: "white",
-};
-
-// Reusable Components
-const ProjectCard = ({ title, description, image }) => {
-  const projectItemStyle = {
-    backgroundColor: "#fff",
-    borderRadius: "0.5rem",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    overflow: "hidden",
-  };
-
-  const projectItemImgStyle = {
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-  };
-
-  const projectInfoStyle = {
-    padding: "1.5rem",
-  };
-
-  const projectInfoH3Style = {
-    fontSize: "1.5rem",
-    marginBottom: "0.5rem",
-  };
-
-  const projectInfoPStyle = {
-    fontSize: "1rem",
-  };
-
+// ProjectCard Component
+const ProjectCard = React.memo(({ title, description, image }) => {
   return (
-    <div style={projectItemStyle}>
-      <img src={image} alt={title} style={projectItemImgStyle} />
-      <div style={projectInfoStyle}>
-        <h3 style={projectInfoH3Style}>{title}</h3>
-        <p style={projectInfoPStyle}>{description}</p>
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-48 object-cover"
+        loading="lazy"
+      />
+      <div className="p-6">
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <p className="text-gray-600">{description}</p>
       </div>
     </div>
   );
-};
+});
 
-// Hero Section with Carousel
+// Hero Section
 const HeroSection = () => {
-  const images = [
+  const images = useMemo(() => [
     "https://wallpapercave.com/wp/wp9292042.jpg",
     "https://wallpapercave.com/wp/wp9292041.jpg",
     "https://wallpapercave.com/wp/wp9292040.jpg",
-  ];
+  ], []);
 
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  // Carousel logic
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [images.length]);
-
-  const heroSectionStyle = {
-    width: "100%",
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundImage: `url(${images[currentImageIndex]})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    color: "white",
-    textAlign: "center",
-    transition: "background-image 1s ease-in-out",
-  };
+  const currentImageIndex = useCarousel(images);
 
   return (
-    <div style={heroSectionStyle}>
-      <div style={{ maxWidth: "800px", padding: "2rem" }}>
-        <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
-          Building today for a sustainable tomorrow.
-        </h1>
-        <p style={{ fontSize: "1.2rem", marginBottom: "2rem" }}>
+    <div 
+      className="w-full h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat text-white text-center transition-all duration-1000"
+      style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+    >
+      <div className="max-w-4xl px-8">
+        <h1 className="text-5xl mb-4 font-bold">Building today for a sustainable tomorrow.</h1>
+        <p className="text-xl mb-8">
           We provide high-quality engineering and project management solutions,
           focusing on safety, efficiency, and cost-effectiveness. Built on
           integrity and innovation, we strive to create lasting value for our
           clients and industry.
         </p>
-        <div>
-          <button style={redButtonStyle}>Get A Quote</button>
-          <button style={outlineButtonStyle}>More About Us</button>
+        <div className="space-x-4">
+          <button className="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition-colors">
+            Get A Quote
+          </button>
+          <button className="border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white/10 transition-colors">
+            More About Us
+          </button>
         </div>
       </div>
     </div>
@@ -122,140 +111,78 @@ const HeroSection = () => {
 
 // Pre-Info Section
 const PreInfoHome = () => {
-  const styles = {
-    preinfoHome: {
-      width: "100%",
-      minHeight: "100vh",
-      backgroundColor: "#fdfdfd",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      padding: "2rem 1rem",
-    },
-    statistics: {
-      display: "flex",
-      justifyContent: "center",
-      width: "100%",
-      gap: "3rem",
-      marginBottom: "2rem",
-      textAlign: "center",
-    },
-    stat: {
-      textAlign: "center",
-    },
-    statH2: {
-      fontSize: "2.5rem",
-      color: "#6e1f29",
-      fontWeight: 700,
-    },
-    statP: {
-      fontSize: "1rem",
-      color: "#555",
-    },
-    content: {
-      display: "flex",
-      alignItems: "center",
-      gap: "2rem",
-      width: "100%",
-      paddingLeft: "5rem",
-    },
-    imageContainer: {
-      position: "relative",
-      width: "100%",
-      maxWidth: "600px",
-    },
-    image: {
-      width: "100%",
-      height: "auto",
-      borderRadius: "10px",
-      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-    },
-    overlayBox: {
-      position: "absolute",
-      bottom: "-8%",
-      right: "-15%",
-      backgroundColor: "#6e1f29",
-      color: "#fff",
-      padding: "2.5rem",
-      borderRadius: "10px",
-      textAlign: "center",
-      width: "200px",
-    },
-    overlayBoxH3: {
-      fontSize: "2rem",
-      fontWeight: 700,
-    },
-    overlayBoxP: {
-      fontSize: "1rem",
-      marginTop: "0.5rem",
-    },
-    textContainer: {
-      textAlign: "left",
-      maxWidth: "600px",
-      paddingLeft: "5.5rem",
-    },
-    textH2: {
-      fontSize: "2rem",
-      marginBottom: "1rem",
-      color: "#333",
-      fontWeight: 700,
-    },
-    textP: {
-      fontSize: "1rem",
-      lineHeight: 1.5,
-      color: "#555",
-    },
-  };
+  const { ref: statsRef, inView: statsInView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: imageRef, inView: imageInView } = useInView({ threshold: 0.3, triggerOnce: true });
+  const { ref: textRef, inView: textInView } = useInView({ threshold: 0.3, triggerOnce: true });
+
+  const stats = useMemo(() => [
+    { value: "1,500+", label: "Complete Projects" },
+    { value: "450+", label: "Team Members" },
+    { value: "2,800+", label: "Satisfied Clients" },
+  ], []);
 
   return (
-    <div style={styles.preinfoHome}>
-      {/* Statistics */}
-      <div style={styles.statistics}>
-        <div style={styles.stat}>
-          <h2 style={styles.statH2}>
-            1,500<span>+</span>
-          </h2>
-          <p style={styles.statP}>Complete Projects</p>
-        </div>
-        <div style={styles.stat}>
-          <h2 style={styles.statH2}>
-            450<span>+</span>
-          </h2>
-          <p style={styles.statP}>Team Members</p>
-        </div>
-        <div style={styles.stat}>
-          <h2 style={styles.statH2}>
-            2,800<span>+</span>
-          </h2>
-          <p style={styles.statP}>Satisfied Clients</p>
-        </div>
-      </div>
-      {/* Content */}
-      <div style={styles.content}>
-        <div id="left-text1" style={styles.imageContainer}>
-          <img
+    <div className="w-full min-h-screen bg-gray-50 py-16 px-4">
+      <motion.div 
+        ref={statsRef}
+        className="flex justify-center gap-12 mb-16"
+        initial="hidden"
+        animate={statsInView ? "visible" : "hidden"}
+        variants={animations.fadeInUp}
+      >
+        {stats.map((stat, index) => (
+          <motion.div 
+            key={index}
+            className="text-center"
+            variants={animations.fadeInUp}
+          >
+            <h2 className="text-4xl font-bold text-red-800 mb-2">{stat.value}</h2>
+            <p className="text-gray-600">{stat.label}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <div className="flex items-center gap-8 px-20">
+        <motion.div
+          ref={imageRef}
+          className="relative flex-1"
+          initial="hidden"
+          animate={imageInView ? "visible" : "hidden"}
+          variants={animations.fadeInLeft}
+        >
+          <motion.img
             src="https://via.placeholder.com/500x350"
             alt="Infrastructure"
-            style={styles.image}
+            className="w-full rounded-lg shadow-lg"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           />
-          <div style={styles.overlayBox}>
-            <h3 style={styles.overlayBoxH3}>
-              30<span>+</span>
-            </h3>
-            <p style={styles.overlayBoxP}>Years of experience</p>
-          </div>
-        </div>
-        <div style={styles.textContainer}>
-          <h2 style={styles.textH2}>
+          <motion.div
+            className="absolute -bottom-8 -right-16 bg-red-800 text-white p-10 rounded-lg text-center"
+            variants={animations.scaleIn}
+          >
+            <h3 className="text-4xl font-bold">30<span>+</span></h3>
+            <p className="mt-2">Years of experience</p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          ref={textRef}
+          className="flex-1 pl-20"
+          initial="hidden"
+          animate={textInView ? "visible" : "hidden"}
+          variants={animations.fadeInRight}
+        >
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">
             Transforming Vision into Reality Through Experience.
           </h2>
-          <p style={styles.textP}>
+          <p className="text-gray-600 leading-relaxed">
             To establish ourselves as an internationally respected engineering
             consultant, offering comprehensive and innovative solutions. We are
             committed to unmatched performance, unparalleled accountability,
             and exceptional client satisfaction.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -263,170 +190,146 @@ const PreInfoHome = () => {
 
 // Popular Services Section
 const PopularServiceHome = () => {
-  const services = [
+  const services = useMemo(() => [
     {
-      title: "Water Supplya",
-      description: "Designing and enhancing railway networks for safe, efficient, and fast travel.",
-      icon: "🚆",
+      title: "Water Supply",
+      description: "Designing and enhancing water supply networks for efficient distribution.",
+      icon: "💧"
     },
-    { title: "Waste water managment", description: "Reliable road infrastructure.", icon: "🛤️" },
-    { title: "Civil Engineering", description: "Optimizing energy systems.", icon: "🏭" },
-    { title: "Transportation", description: "Modern urban metro systems.", icon: "🚇" },
-    { title: "Solid waste management", description: "Coastal protection solutions.", icon: "🌊" },
-    { title: "Coastal conservation and Development", description: "State-of-the-art airports.", icon: "✈️" },
-  ];
-
-  const containerStyle = {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    backgroundColor: "#131122",
-    color: "#fff",
-    padding: "2rem",
-  };
-
-  const buttonStyle = {
-    padding: "0.8rem 1.5rem",
-    border: "none",
-    borderRadius: "5px",
-    fontSize: "1rem",
-    cursor: "pointer",
-  };
-
-  const gridStyle = {
-    flex: 2,
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-    gap: "1rem",
-  };
+    { 
+      title: "Waste Water Management", 
+      description: "Advanced waste water treatment and management systems.", 
+      icon: "🌊"
+    },
+    { 
+      title: "Civil Engineering", 
+      description: "Comprehensive civil engineering solutions.", 
+      icon: "🏗️"
+    },
+    { 
+      title: "Transportation", 
+      description: "Modern transportation infrastructure development.", 
+      icon: "🚆"
+    },
+    { 
+      title: "Solid Waste Management", 
+      description: "Efficient solid waste disposal and recycling solutions.", 
+      icon: "♻️"
+    },
+    { 
+      title: "Coastal Conservation", 
+      description: "Sustainable coastal development and protection.", 
+      icon: "🌊"
+    },
+  ], []);
 
   return (
-    <div style={containerStyle}>
-      <div style={{ flex: 1, marginRight: "3rem", marginLeft: "5rem", minWidth: "250px" }}>
-        <h2 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>Our Domain of Expertise</h2>
-        <p style={{ fontSize: "1rem", marginBottom: "1.5rem" }}>
-          We prioritize safe, reliable, and operationally efficient designs tailored to your requirements.
-        </p>
-        <button style={{ ...buttonStyle, backgroundColor: "#c44d55", color: "#fff" }}>
-          Explore More
-        </button>
-      </div>
-      <div style={gridStyle}>
-        {services.map((service, index) => (
-          <div
-            key={index}
-            style={{
-              backgroundColor: "#1c1b2f",
-              padding: "2rem",
-              borderRadius: "10px",
-              textAlign: "center",
-              border: "0.1px solid white",
-            }}
+    <div className="bg-gray-900 text-white py-16 px-8">
+      <div className="flex flex-wrap gap-8">
+        <div className="flex-1 min-w-[250px] pr-8">
+          <h2 className="text-4xl font-bold mb-4">Our Domain of Expertise</h2>
+          <p className="text-gray-300 mb-6">
+            We prioritize safe, reliable, and operationally efficient designs 
+            tailored to your requirements.
+          </p>
+          <Link 
+            to="/ServicePage" 
+            className="inline-block bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition-colors"
           >
-            <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>{service.icon}</div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </div>
-        ))}
+            Explore More
+          </Link>
+        </div>
+
+        <div className="flex-[2] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-800 p-8 rounded-lg text-center border border-gray-700"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="text-4xl mb-4">{service.icon}</div>
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-gray-400">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-
-
 // Projects Section
 const ProjectsSection = () => {
-  const projects = [
-    { id: 1, title: "Project 1", description: "Description 1", image: "https://via.placeholder.com/300" },
-    { id: 2, title: "Project 2", description: "Description 2", image: "https://via.placeholder.com/300" },
-    { id: 3, title: "Project 3", description: "Description 3", image: "https://via.placeholder.com/300" },
-  ];
-
-  const projectsSectionStyle = {
-    padding: "4rem 2rem",
-    textAlign: "center",
-  };
-
-  const projectsGridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "2rem",
-  };
+  const projects = useMemo(() => [
+    { 
+      id: 1, 
+      title: "Urban Development", 
+      description: "Sustainable urban infrastructure development", 
+      image: "https://via.placeholder.com/300" 
+    },
+    { 
+      id: 2, 
+      title: "Water Treatment", 
+      description: "Modern water treatment facility", 
+      image: "https://via.placeholder.com/300" 
+    },
+    { 
+      id: 3, 
+      title: "Transport Hub", 
+      description: "Integrated transportation center", 
+      image: "https://via.placeholder.com/300" 
+    },
+  ], []);
 
   return (
-    <section style={projectsSectionStyle}>
-      <h2>Our Projects</h2>
-      <div style={projectsGridStyle}>
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            title={project.title}
-            description={project.description}
-            image={project.image}
-          />
-        ))}
+    <section className="py-16 px-8 bg-gray-50">
+      <div className="container mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-12">Our Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              title={project.title}
+              description={project.description}
+              image={project.image}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
+// Contact Section
 const ContactUsSecHome = () => {
-  const sectionStyle = {
-    backgroundImage: "url('https://wallpapercave.com/wp/wp9292042.jpg')",
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    padding: '6rem 2rem',
-    textAlign: 'center',
-    color: '#fff',
-  };
-
-  const contentStyle = {
-    maxWidth: '800px',
-    margin: '0 auto',
-  };
-
-  const headingStyle = {
-    fontSize: '3rem',
-    marginBottom: '1.5rem',
-  };
-
-  const paragraphStyle = {
-    fontSize: '1.4rem',
-    marginBottom: '2.5rem',
-  };
-
-  const buttonStyle = {
-    backgroundColor: '#c00',
-    color: '#fff',
-    border: 'none',
-    padding: '1rem 2rem',
-    fontSize: '1.1rem',
-    borderRadius: '0.5rem',
-    cursor: 'pointer',
-  };
-
   return (
-    <section style={sectionStyle}>
-      <div style={contentStyle}>
-        <h1 style={headingStyle}>Building today for a sustainable tomorrow.</h1>
-        <p style={paragraphStyle}>
-          We believe in creating and not just in building structures. We are committed to live a lasting legacy, we combine cutting edge technology, ethical practices and expert and skilled human resources to deliver our client's requirement.
+    <section 
+      className="py-24 bg-cover bg-center text-white text-center"
+      style={{ backgroundImage: "url('https://wallpapercave.com/wp/wp9292042.jpg')" }}
+    >
+      <div className="max-w-4xl mx-auto px-8">
+        <h1 className="text-5xl font-bold mb-6">
+          Building today for a sustainable tomorrow.
+        </h1>
+        <p className="text-xl mb-10">
+          We believe in creating and not just in building structures. We are 
+          committed to live a lasting legacy, we combine cutting edge technology, 
+          ethical practices and expert and skilled human resources to deliver 
+          our client's requirement.
         </p>
-        <button style={buttonStyle}>Contact Us</button>
+        <button className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors">
+          Contact Us
+        </button>
       </div>
     </section>
   );
 };
 
-
-
-
-// Home Page
+// Main Home Component
 const Home = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <HeroSection />
       <PreInfoHome />
       <PopularServiceHome />
@@ -438,4 +341,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default React.memo(Home);
