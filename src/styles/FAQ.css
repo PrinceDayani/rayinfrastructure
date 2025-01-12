@@ -1,0 +1,742 @@
+/* FaqheroSection */
+.FaqheroSectionStyle {
+  width: 100%;
+  height: 60vh; /* Maintained height relative to viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
+  background-size: cover; /* Ensures the background image scales properly */
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.FaqheroSectionContent {
+  max-width: 50rem; /* Converted from 800px */
+  padding: 2rem;
+}
+
+.FaqheroSectionTitle {
+  font-size: 3rem; /* Converted from 48px */
+  margin-bottom: 1rem;
+}
+
+.FaqheroSectionText {
+  font-size: 1.2rem; /* Converted from 19.2px */
+  margin-bottom: 2rem;
+}
+
+/* FAQSection */
+.sectionStyle {
+  padding: 2rem;
+  color: black;
+  flex: 1;
+}
+.section Style h2{ 
+font-Size: "2.5rem";
+margin-Bottom: "0.7rem";
+text-Align: "center";
+font-Weight: "bold";
+}
+
+.questionContainerStyle {
+  max-width: 43.75rem; /* Converted from 700px */
+  margin: 0 auto;
+}
+
+.questionStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 0.0625rem solid #ddd; /* Converted from 1px */
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.answerStyle {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.3125rem; /* Converted from 5px */
+  margin-bottom: 0;
+}
+
+/* CombinedSection */
+.containerStyle {
+  display: flex;
+  gap: 0.625rem; /* Converted from 10px */
+  padding: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: calc(100% - 15rem); /* Converted from 240px */
+  margin: 0 auto;
+}
+
+.leftImagesStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem; /* Converted from 10px */
+  width: 15rem; /* Converted from 240px */
+}
+
+.topImageStyle {
+  height: 12.5rem; /* Converted from 200px */
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem; /* Converted from 16px */
+}
+
+.bottomImageStyle {
+  height: 6.25rem; /* Converted from 100px */
+  background-color: rgba(143, 31, 49, 1);
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 1rem; /* Converted from 16px */
+}
+
+.buttonStyle {
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1.875rem; /* Converted from 30px */
+  cursor: pointer;
+  border: none;
+}
+
+.outlineButtonStyle {
+  background-color: transparent;
+  border: 0.125rem solid white; /* Converted from 2px */
+  padding: 0.5rem 0.7rem;
+  border-radius: 1.7rem;
+  color: white;
+}
+
+.sideImageStyle {
+  height: 19.375rem; /* Converted from 310px */
+  background-color: #d0eaff;
+  text-align: center;
+  padding: 1rem;
+  width: 15rem; /* Converted from 240px */
+  border-radius: 1rem; /* Converted from 16px */
+}
+
+.faqStyle {
+  flex: 2;
+  margin-left: 0.625rem; /* Converted from 10px */
+}
+
+/* StartProjectSection */
+.StartProjectSectionStyle {
+  width: 100%;
+  height: 50vh; /* Maintained height relative to viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
+  background-size: cover; /* Ensures the background image scales properly */
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.StartProjectButtonStyle {
+  font-size: 1rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 1.875rem; /* Converted from 30px */
+  cursor: pointer;
+  border: none;
+}
+
+.StartProjectOutlineButtonStyle {
+  background-color: transparent;
+  border: 0.1875rem solid white; /* Converted from 3px */
+  color: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 1.7rem;
+}
+
+.StartProjectContent {
+  max-width: 50rem; /* Converted from 800px */
+  padding: 2rem;
+}
+
+.StartProjectTitle {
+  font-size: 3rem; /* Converted from 48px */
+  margin-bottom: 1rem;
+}
+
+/* GetInTouch */
+.GetInTouchContainerStyle {
+  display: flex;
+  gap: 4.375rem; /* Converted from 70px */
+  padding: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageStyle {
+  max-width: 25rem; /* Converted from 400px */
+  height: 45rem; /* Converted from 720px */
+  object-fit: cover;
+  padding: 0.625rem; /* Converted from 10px */
+}
+
+.formContainerStyle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 31.25rem; /* Converted from 500px */
+}
+
+.formContainerStyle h2{ 
+  font-Weight: "bold"; 
+  font-Size: "2rem";
+}
+
+.inputStyle {
+  padding: 0.8rem;
+  border-radius: 0.625rem; /* Converted from 10px */
+  font-size: 0.8rem;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.buttonStyle {
+  padding: 0.5rem 0.3rem;
+  background-color: rgba(143, 31, 49, 1);
+  color: white;
+  border: none;
+  border-radius: 1.25rem; /* Converted from 20px */
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.mapStyle {
+  margin-top: 1rem;
+  width: 100%;
+  height: 12.5rem; /* Converted from 200px */
+  background-color: #f0f0f0;
+  text-align: center;
+  line-height: 12.5rem; /* Converted from 200px */
+  color: #555;
+}
+
+/* Responsive Styles for Small Laptops (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+
+/* FAQSection */
+.sectionStyle {
+  padding: 2rem;
+  color: black;
+  flex: 1;
+}
+
+.questionContainerStyle {
+  max-width: 43.75rem; /* Converted from 700px */
+  margin: 0 auto;
+}
+
+.questionStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-bottom: 0.0625rem solid #ddd; /* Converted from 1px */
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.answerStyle {
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.3125rem; /* Converted from 5px */
+  margin-bottom: 0;
+}
+
+/* CombinedSection */
+.containerStyle {
+  display: flex;
+  gap: 0.42rem; /* Converted from 10px */
+  padding: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: calc(190% - 15rem); /* Converted from 240px */
+  margin: 0 auto;
+}
+
+.leftImagesStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem; /* Converted from 10px */
+  width: 12rem; /* Converted from 240px */
+}
+
+.topImageStyle {
+  height: 10.5rem; /* Converted from 200px */
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem; /* Converted from 16px */
+}
+
+.bottomImageStyle {
+  height: 5.25rem; /* Converted from 100px */
+  background-color: rgba(143, 31, 49, 1);
+  text-align: center;
+  padding: 0.7rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 1rem; /* Converted from 16px */
+}
+
+.buttonStyle {
+  font-size: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 1.875rem; /* Converted from 30px */
+  cursor: pointer;
+  border: none;
+}
+
+.outlineButtonStyle {
+  background-color: transparent;
+  border: 0.125rem solid white; /* Converted from 2px */
+  padding: 0.3rem 0.7rem;
+  border-radius: 1.7rem;
+  color: white;
+}
+
+.sideImageStyle {
+  height: 16.375rem; 
+  padding: 1rem;
+  width: 12rem; 
+  border-radius: 1rem; 
+}
+
+.faqStyle {
+  flex: 2;
+  margin-left: 0.625rem; 
+}
+
+/* StartProjectSection */
+.StartProjectSectionStyle {
+  width: 100%;
+  height: 50vh; /* Maintained height relative to viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
+  background-size: cover; /* Ensures the background image scales properly */
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.StartProjectButtonStyle {
+  font-size: 1rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 1.875rem; /* Converted from 30px */
+  cursor: pointer;
+  border: none;
+}
+
+.StartProjectOutlineButtonStyle {
+  background-color: transparent;
+  border: 0.1875rem solid white; /* Converted from 3px */
+  color: white;
+  padding: 0.5rem 0.7rem;
+  border-radius: 1.7rem;
+}
+
+.StartProjectContent {
+  max-width: 50rem; /* Converted from 800px */
+  padding: 2rem;
+}
+
+.StartProjectTitle {
+  font-size: 3rem; /* Converted from 48px */
+  margin-bottom: 1rem;
+}
+
+/* GetInTouch */
+.GetInTouchContainerStyle {
+  display: flex;
+  gap: 3.375rem; /* Converted from 70px */
+  padding: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageStyle {
+  max-width: 22rem; /* Converted from 400px */
+  height: 42rem; /* Converted from 720px */
+  object-fit: cover;
+  padding: 0.625rem; /* Converted from 10px */
+}
+
+.formContainerStyle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 31.25rem; /* Converted from 500px */
+}
+
+.inputStyle {
+  padding: 0.6rem;
+  border-radius: 0.625rem; /* Converted from 10px */
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.buttonStyle {
+  padding: 0.5rem 0.3rem;
+  border-radius: 1rem;
+  width: 40%;
+}
+}
+
+/* Responsive Styles for Tablets (441px to 768px) */
+@media (min-width: 441px) and (max-width: 768px) {
+
+/* FaqheroSection */
+.FaqheroSectionStyle {
+  width: 100%;
+  height: 50vh; 
+}
+
+.FaqheroSectionTitle {
+  font-size: 2.5rem; 
+}
+
+.FaqheroSectionText {
+  font-size: 1rem; 
+  margin-bottom: 2rem;
+}
+
+/* FAQSection */
+.sectionStyle {
+  padding: 2rem;
+}
+
+.sectionStyle p {
+  font-size: 0.9rem;
+}
+
+.questionContainerStyle {
+  max-width: 40rem;
+}
+
+.questionStyle {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.answerStyle {
+  padding: 0.6rem;
+  background-color: #f0f0f0;
+}
+
+/* CombinedSection */
+.containerStyle {
+  gap: 0.3rem;
+  padding: 2rem;
+  max-width: calc(200% - 15rem); 
+
+}
+
+.leftImagesStyle {
+  gap: 0.625rem; 
+  width: 10rem; 
+  }
+
+.topImageStyle {
+  height: 10.5rem; 
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.bottomImageStyle {
+  height: 6.25rem; 
+  padding: 0.8rem;
+  width: 100%;
+  border-radius: 1rem; 
+}
+
+.buttonStyle {
+  font-size: 0.6rem;
+  padding: 0.2rem 1rem;
+  border-radius: 1.875rem; 
+}
+
+.outlineButtonStyle {
+  border: 0.125rem solid white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1.7rem;
+  font-size: 0.7rem;
+}
+
+.sideImageStyle {
+  height: 17.5rem; 
+  width: 10rem; 
+  border-radius: 1rem; 
+}
+
+.faqStyle {
+  flex: 2;
+  margin-left: 0.625rem; 
+}
+
+/* GetInTouch */
+.GetInTouchContainerStyle {
+  display: flex;
+  gap: 1.375rem; /* Converted from 70px */
+  padding: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageStyle {
+  max-width: 22rem; 
+  height: 40rem; 
+  padding: 0.625rem;
+}
+
+.formContainerStyle {
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 28.25rem; 
+}
+
+.formContainerStyle p{
+  font-size: 0.8rem;
+  line-height: 0.9rem;
+}
+
+.inputStyle {
+  padding: 0.5rem;
+  border-radius: 0.625rem; 
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.buttonStyle {
+  padding: 0.5rem 0.3rem;
+  background-color: rgba(143, 31, 49, 1);
+  color: white;
+  border: none;
+  border-radius: 1.25rem; /* Converted from 20px */
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.mapStyle {
+  margin-top: 1rem;
+  width: 100%;
+  height: 10.5rem; /* Converted from 200px */
+  background-color: #f0f0f0;
+  text-align: center;
+  align-items: center;
+  line-height: 12.5rem; /* Converted from 200px */
+  color: #555;
+}
+}
+
+/* Responsive Styles for Mobile Devices (max-width: 440px) */
+@media (max-width: 440px) {
+
+/* FaqheroSection */
+.FaqheroSectionStyle {
+  width: 100%;
+  height: 30vh; 
+}
+
+.FaqheroSectionTitle {
+  font-size: 2rem; 
+}
+
+.FaqheroSectionText {
+  font-size: 0.8rem; 
+  margin-bottom: 2rem;
+}
+
+/* FAQSection */
+.sectionStyle {
+  padding: 1rem;
+}
+
+.sectionStyle p {
+  font-size: 0.7rem;
+}
+
+.questionContainerStyle {
+  max-width: 40rem;
+}
+
+.questionStyle {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.answerStyle {
+  padding: 0.6rem;
+  background-color: #f0f0f0;
+}
+
+/* CombinedSection */
+.containerStyle {
+  gap: 0.3rem;
+  padding: 2rem;
+  max-width: calc(200% - 15rem); 
+
+}
+
+.leftImagesStyle {
+  gap: 0.3rem; 
+  width: 10rem; 
+  }
+
+.topImageStyle {
+  height: 10.5rem; 
+  padding: 1rem;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.bottomImageStyle {
+  height: 6.25rem; 
+  padding: 0.8rem;
+  width: 100%;
+  border-radius: 1rem; 
+}
+
+.buttonStyle {
+  font-size: 0.6rem;
+  padding: 0.2rem 1rem;
+  border-radius: 1.875rem; 
+}
+
+.outlineButtonStyle {
+  border: 0.125rem solid white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1.7rem;
+  font-size: 0.7rem;
+}
+
+.sideImageStyle {
+  height: 17.5rem; 
+  width: 10rem; 
+  border-radius: 1rem; 
+}
+
+.faqStyle {
+  flex: 2;
+  margin-left: 0.625rem; 
+}
+
+/* StartProjectSection */
+.StartProjectSectionStyle {
+  height: 40vh; 
+}
+
+.StartProjectOutlineButtonStyle {
+  background-color: transparent;
+  border: 0.1875rem solid white;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 1.7rem;
+}
+
+.StartProjectContent {
+  max-width: 50rem; 
+  padding: 2rem;
+}
+
+.StartProjectTitle {
+  font-size: 2rem; 
+  margin-bottom: 1rem;
+}
+
+
+/* GetInTouch */
+.GetInTouchContainerStyle {
+  display: flex;
+  gap: 1rem; 
+  padding: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageStyle {
+  max-width: 10rem; 
+  height: 20rem; 
+  padding: 0.1rem;
+}
+
+.formContainerStyle {
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 20rem; 
+}
+.formContainerStyle h2{ 
+  font-Weight: "bold"; 
+  font-Size: "1.8rem";
+  line-height: 1.4rem;
+}
+
+.formContainerStyle p{
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+  margin-bottom: 0rem;
+}
+
+.inputStyle {
+  padding: 0.3rem;
+  border-radius: 0.625rem; 
+  font-size: 0.8rem;
+  width: 100%;
+}
+
+.buttonStyle {
+  padding: 0.5rem;
+  background-color: rgba(143, 31, 49, 1);
+  color: white;
+  border: none;
+  border-radius: 1.25rem; 
+  cursor: pointer;
+  font-size: 0.7rem;
+  width: 100%;
+}
+
+.mapStyle {
+  margin-top: 1rem;
+  width: 100%;
+  height: 10.5rem; 
+  background-color: #f0f0f0;
+  text-align: center;
+  align-items: center;
+  line-height: 12.5rem; 
+  color: #555;
+}
+}

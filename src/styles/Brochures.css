@@ -1,0 +1,87 @@
+/* Responsive for tablets */
+@media (max-width: 768px) {
+    .hero-container {
+      height: 300px;
+    }
+  
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .card-holder {
+      width: 250px;
+    }
+  
+    .card-holder img {
+      height: 300px;
+    }
+  
+    .download-button {
+      width: 250px;
+      font-size: 14px;
+    }
+  
+    .name-style {
+      font-size: 16px;
+    }
+  
+    .down-hero {
+      margin-top: -5rem;
+      padding: 2rem;
+      margin-left: 3rem;
+      padding-right: 15vh;
+    }
+    .content-wrapper h2 {
+        font-size: 30.72px; 
+    }
+
+    .content-title {
+        font-size: 30.72px; /* 4% of 768px */
+      }
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 425px) {
+    .hero-container {
+      height: 250px;
+    }
+  
+    .hero-title {
+      font-size: 1.5rem;
+    }
+  
+    .card-holder {
+      width: 200px;
+      height:300px;
+    }
+  
+    .card-holder img {
+      height: 250px;
+    }
+  
+    .download-button {
+      width: 200px;
+      font-size: 12px;
+    }
+  
+    .name-style {
+      font-size: 14px;
+    }
+  
+    .content-wrapper {
+      margin-top: -2rem;
+      padding: 1.5rem;
+      margin-left: 1rem;
+      padding-right: 10vh;
+      border-radius: 1px;
+    }
+
+    .content-title {
+        font-size: 28px; /* Minimum value clamped */
+      }
+
+      .content-wrapper h2 {
+        font-size: 28px; 
+    }
+  }
+  

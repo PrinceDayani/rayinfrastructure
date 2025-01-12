@@ -1,0 +1,201 @@
+/* Hero Section */
+.hero-container {
+  position: relative;
+}
+
+.hero-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+}
+
+/* Card Holder */
+.card-holder {
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  overflow: hidden;
+  width: 200px;
+  margin: 0 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Brochure and Management Section */
+.card-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+  padding-left: 3rem;
+  margin-bottom: 100px;
+}
+
+.name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.designation {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* Content Section */
+.content-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.content-category {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.content-section {
+  padding: 20px;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Styles */
+
+/* Laptop Small Screen: max-width 1040px */
+@media (max-width: 1040px) {
+  .card-holder {
+    width: 180px;
+    margin: 0 8px;
+  }
+
+  .card-image {
+    height: 180px;
+  }
+
+  .card-container {
+    gap: 15px;
+    padding-left: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet Screen: min-width 441px and max-width 768px */
+@media (min-width: 441px) and (max-width: 768px) {
+  .card-holder {
+    width: 150px;
+    height: 150px;
+    margin: 0 5px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .card-container {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile Screen: max-width 440px */
+@media (max-width: 440px) {
+  .card-holder {
+    width: 100px;
+    height: 100px;
+    margin: 0 5px;
+  }
+
+  .card-image {
+    height: 100px;
+  }
+
+  .card-container {
+    justify-content: left;
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .content-title {
+    max-width: 300px;
+  }
+
+  .content-section {
+    padding: 2px 0;
+  }
+  .name {
+    font-size: 16px;
+  }
+
+  .designation {
+    font-size: 14px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+  }
+}

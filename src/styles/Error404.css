@@ -1,0 +1,66 @@
+/* Full-screen background container */
+.not-found-container {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  position: relative;
+  font-family: "Arial", sans-serif;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Overlay for readability */
+.not-found-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Content styling */
+.content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 6rem;
+  margin: 0;
+}
+
+.content h2 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.content p {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+/* Button styling */
+.back-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #b71c1c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #8e0000;
+}
