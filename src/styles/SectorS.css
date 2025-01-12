@@ -663,9 +663,6 @@
     --primary-color: #8b2332;
     --text-gray: #4a5568;
     --background-light: #f8f9fe;
-    --spacing-base: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
   }
   
   .outside-container {
