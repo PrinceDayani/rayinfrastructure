@@ -1,4 +1,3 @@
-'use client'
 import React, { useRef, useEffect, useState } from 'react'
 
 const Card = ({ children, className = '', onMouseEnter, onMouseLeave, index }) => (

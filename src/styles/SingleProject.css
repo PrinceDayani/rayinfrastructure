@@ -4,14 +4,48 @@
   height: 30rem;
   display: flex;
   justify-content: center;
-  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
   align-items: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: white;
   text-align: center;
+  position: relative;
 }
+
+.herosection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/dummy.jpg');
+  filter: brightness(0.3);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  transition: background-image 1s ease-in-out;
+}
+
+.herosection > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes changeBackground {
+  0% { background-image: url('../assets/images/BridgeHome.jpg'); }
+  33% { background-image: url('../assets/images/hero-bg.jpg'); }
+  66% { background-image: url('../assets/images/solid-white-background-28i8qcatyjo9dc8y.jpg'); }
+  100% { background-image: url('../assets/images/dummy.jpg'); }
+}
+
+.herosection::before {
+  animation: changeBackground 30s infinite ease-in-out;
+}
+
+
 
 .herocontent {
   max-width: 50rem;
@@ -155,7 +189,6 @@ ul {
   height: 25rem;
   display: flex;
   justify-content: center;
-  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
   align-items: center;
   background-size: cover;
   background-position: center;
@@ -307,7 +340,6 @@ ul {
   height: 21rem;
   display: flex;
   justify-content: center;
-  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
   align-items: center;
   background-size: cover;
   background-position: center;
@@ -458,7 +490,6 @@ ul {
   height: 18rem;
   display: flex;
   justify-content: center;
-  background-image: url('https://wallpapercave.com/wp/wp9292042.jpg');
   align-items: center;
   background-size: cover;
   background-position: center;

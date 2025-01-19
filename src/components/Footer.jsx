@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../styles/Footer.css"; // Add your styles here
-import logo from "../assets/images/RLBGR.png"; // Adjust the path to match your project structure
-
+// Footer.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/Footer.css';
 
 const Footer = () => {
   return (
@@ -11,8 +10,8 @@ const Footer = () => {
         {/* Logo and Description */}
         <div className="footer-logo-description">
           <div className="logo">
-          <img src={logo} alt="Ray" />
-          <span>Ray Infrastructures Pvt. Ltd.</span>
+            <img src="./images/RayLogo.png" alt="Ray" />
+            <span>Ray Infrastructures Pvt. Ltd.</span>
           </div>
           <p>
             We provide high-quality engineering and project management
@@ -34,20 +33,24 @@ const Footer = () => {
         {/* Quick Links */}
         <div className="footer-links">
           <h4>Quick Links</h4>
-          <Link to="/">Home</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/projects">Projects</Link>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/about">About Us</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/projects">Projects</Link>
+          </nav>
         </div>
 
         {/* Services */}
         <div className="footer-links">
           <h4>Services</h4>
-          <Link to="/studies">Studies & Planning</Link>
-          <Link to="/surveys">Surveys & Investigations</Link>
-          <Link to="/design">Design & Construction Engineering</Link>
-          <Link to="/roof">Roof Maintenance</Link>
-          <Link to="/management">Project Management</Link>
+          <nav>
+            <Link to="/studies">Studies & Planning</Link>
+            <Link to="/surveys">Surveys & Investigations</Link>
+            <Link to="/design">Design & Construction Engineering</Link>
+            <Link to="/roof">Roof Maintenance</Link>
+            <Link to="/management">Project Management</Link>
+          </nav>
         </div>
 
         {/* Contact */}
@@ -55,8 +58,10 @@ const Footer = () => {
           <h4>Contact</h4>
           <address>
             C.O.: 505, Synergy Tower, Nr Vodafone House, Corporate Rd,
-            Prahladnagar, Ahmedabad 380015 <br />
-            +91 079 4600 1587 <br />
+            Prahladnagar, Ahmedabad 380015
+            <br />
+            +91 079 4600 1587
+            <br />
             <a href="mailto:info@rayinfra.in">info@rayinfra.in</a>
           </address>
           {/* Social Icons */}
@@ -71,12 +76,10 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="footer-bottom">
-        <p>
-          Krish Satasiya Designs © 2024 All rights reserved
-        </p>
+        <p>Ray Infrastructure © 2024 All rights reserved</p>
         <div className="footer-bottom-links">
-          <Link to="/terms">Terms and Condition</Link>
-          <Link to="/privacy">Privacy and Policy</Link>
+          <Link to="/terms">Terms and Conditions</Link>
+          <Link to="/privacy">Privacy Policy</Link>
         </div>
       </div>
     </footer>

@@ -268,9 +268,7 @@ const Links = () => {
               Should you have any inquiry or need more information please contact us at 
               <strong> connect@rayinfra.in</strong>.
             </p>
-            <p>
-              To apply for a job, please visit <strong>rayinfra.in/careers</strong> and upload your CV against the relevant job opportunities listed on the page. If your profile matches the requirement, our team would connect with you. We wish you all the best in your job search.
-            </p>
+            
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@
   left: 50%;
   transform: translateX(-50%);
   height: 90%;
-  width: 1px;
+  width: 3px;
   background-color: #e5e5e5;
 }
 
@@ -37,6 +37,7 @@
 .timeline-content-even {
   padding-right: 4rem;
   text-align: right;
+  
 }
 
 .timeline-content-odd {
@@ -45,8 +46,8 @@
 
 .timeline-card {
   background-color: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 4rem;
+  border-radius: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s ease;
   border: 1px solid #991b1b;

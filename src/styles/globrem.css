@@ -1,0 +1,16 @@
+/* Add this in your custom CSS file */
+
+#root {
+    overflow: hidden;
+  }
+a {
+    color: #bea7a7; /* Change the color to your desired one */
+    text-decoration: none; /* Remove underlines if Bootstrap is adding them */
+  }
+  
+  a:hover {
+    color: #a37e7e; /* Add hover styles if needed */
+    text-decoration: none; /* Remove underlines if Bootstrap is adding them */
+
+  }
+  

@@ -18,7 +18,6 @@ const Header = () => {
   // Toggle individual dropdowns
   const toggleHomeDropdown = () => setHomeOpen(!isHomeOpen);
   const togglePagesDropdown = () => setPagesOpen(!isPagesOpen);
-  const toggleProjectsDropdown = () => setProjectsOpen(!isProjectsOpen);
   const toggleServicesDropdown = () => setServicesOpen(!isServicesOpen);
 
   // JavaScript function to close dropdowns when clicking outside
@@ -44,8 +43,8 @@ const Header = () => {
       {/* Top Bar */}
       <div className="top-bar">
       <p style={{ fontFamily: 'Outfit, sans-serif' }}>
-      We Are Professional &amp; Established Engineering, Building Trust
-      Company. Need Any Help?
+      Building today for a sustainable tomorrow.
+
     </p>
         <div className="social-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -66,39 +65,33 @@ const Header = () => {
       {/* Navigation Bar */}
       <div className={`nav-bar ${isMobileMenuOpen ? "active" : ""}`}>
         <div className="logo">
+          <Link to="/">
           <img src={logo} alt="Ray" />
+          </Link>
         </div>
 
         <nav className={`nav-links ${isMobileMenuOpen ? "active" : ""}`}>
           <div className="dropdown">
             <button className="dropbtn" onClick={toggleHomeDropdown}>
-              Home
+            <Link to="/">Home</Link>
             </button>
           </div>
 
           <div className="dropdown">
             <button className="dropbtn" onClick={togglePagesDropdown}>
-              Pages
+              About Us
             </button>
             {isPagesOpen && (
               <div className="dropdown-content">
-                <Link to="/about">About Us</Link>
-                <Link to="/team">Our Team</Link>
+                <Link to="/FAQ">FAQ</Link>
+                <Link to="/Breakthrough">Histoy</Link>
+                <Link to="/Brochures">Brochures</Link>
+                <Link to="/Leadership">Our Team</Link>
               </div>
             )}
           </div>
 
-          <div className="dropdown">
-            <button className="dropbtn" onClick={toggleProjectsDropdown}>
-              Projects
-            </button>
-            {isProjectsOpen && (
-              <div className="dropdown-content">
-                <Link to="/ongoing">Ongoing Projects</Link>
-                <Link to="/completed">Completed Projects</Link>
-              </div>
-            )}
-          </div>
+        
 
           <div className="dropdown">
             <button className="dropbtn" onClick={toggleServicesDropdown}>
@@ -106,8 +99,8 @@ const Header = () => {
             </button>
             {isServicesOpen && (
               <div className="dropdown-content">
-                <Link to="/consulting">Consulting</Link>
-                <Link to="/design">Design & Build</Link>
+                <Link to="/ServicePage">Servicess</Link>
+                <Link to="/SingleProject">Project Page</Link>
               </div>
             )}
           </div>

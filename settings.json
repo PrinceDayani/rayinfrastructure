@@ -1,0 +1,10 @@
+{
+    "dependencyGraph.entryPoint": "src/index.js",
+    "dependencyGraph.include": [
+        "src/**/*"
+    ],
+    "dependencyGraph.exclude": [
+        "node_modules/**/*",
+        "dist/**/*"
+    ]
+} 

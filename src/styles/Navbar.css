@@ -145,7 +145,8 @@ body, html {
 .contact-btnX {
   background-color: #87212e;
   border: none;
-  color: white;
+  color: rgb(133, 79, 79);
+  
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;

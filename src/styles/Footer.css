@@ -1,129 +1,195 @@
-/* Footer Container */
+/* Footer.css */
 .footer {
-  background-color: #1a1a2e; /* Dark background */
+  background-color: #1a1a2e;
   color: white;
   padding: 40px 20px;
   font-size: 14px;
   line-height: 1.8;
 }
 
-/* Footer Content */
+/* Main content container */
 .footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
 }
 
+/* Logo and description section */
 .footer-logo-description {
-  flex: 1;
   max-width: 400px;
 }
 
-.footer-logo-description .logo {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.footer-logo-description img {
+.logo img {
   height: 50px;
+  width: auto;
 }
 
+.logo span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Email subscription */
 .email-subscription {
   display: flex;
   margin-top: 20px;
+  max-width: 100%;
 }
 
 .email-input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  outline: none;
 }
 
 .subscribe-btn {
   background-color: #822e33;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 0 5px 5px 0;
+  padding: 12px 24px;
+  border-radius: 0 4px 4px 0;
   cursor: pointer;
-  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .subscribe-btn:hover {
   background-color: #a93b45;
 }
 
-/* Links and Contact */
-.footer-links,
-.footer-contact {
-  flex: 1;
-  min-width: 200px;
-}
-
+/* Links sections */
 .footer-links h4,
 .footer-contact h4 {
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-.footer-links a,
-.footer-contact a {
-  color: white;
+.footer-links nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #ffffff;
   text-decoration: none;
-  display: block;
-  margin: 5px 0;
+  transition: color 0.3s ease;
 }
 
-.footer-links a:hover,
+.footer-links a:hover {
+  color: #a93b45;
+}
+
+/* Contact section */
+.footer-contact address {
+  font-style: normal;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
 .footer-contact a:hover {
   color: #a93b45;
 }
 
-.footer-contact address {
-  font-style: normal;
-  line-height: 1.5;
-}
-
+/* Social icons */
 .social-icons {
-  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .social-icons a {
   color: white;
   text-decoration: none;
-  margin-right: 10px;
-  font-size: 16px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #a93b45;
+  background-color: #a93b45;
+  transform: translateY(-2px);
 }
 
-/* Footer Bottom */
+/* Footer bottom */
 .footer-bottom {
-  margin-top: 30px;
+  max-width: 1200px;
+  margin: 40px auto 0;
   padding-top: 20px;
-  border-top: 1px solid #444;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 .footer-bottom p {
   margin: 0;
 }
 
+.footer-bottom-links {
+  display: flex;
+  gap: 20px;
+}
+
 .footer-bottom-links a {
   color: white;
   text-decoration: none;
-  margin-left: 10px;
+  transition: color 0.3s ease;
 }
 
 .footer-bottom-links a:hover {
   color: #a93b45;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+  }
+
+  .footer-logo-description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 15px;
+  }
+
+  .footer-bottom-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }

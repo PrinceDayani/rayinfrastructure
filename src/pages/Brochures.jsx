@@ -18,9 +18,10 @@ const HeroSection = () => {
 
       <div ref={ref} className={`hero-content ${inView ? "fade-in" : ""}`}>
         <h1 className="hero-title">
-          <span>Engineering a</span>
+          <span>Building today
+          </span>
           <br />
-          Better Tomorrow™
+          for a sustainable tomorrow.
         </h1>
       </div>
     </section>

@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+    }
   
   /* Root Variables */
   :root {
@@ -16,6 +16,7 @@
     --border-radius: 8px;
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
+    
   }
   
   /* Global Body Style */
@@ -25,6 +26,7 @@
     background-color: var(--background-color);
     line-height: 1.6;
     font-size: 16px;
+    
   }
   
   /* Headings */
@@ -195,3 +197,13 @@
     }
   }
   
+
+  /* Add this in your custom CSS file */
+a {
+  color: #007bff; /* Change the color to your desired one */
+  text-decoration: none; /* Remove underlines if Bootstrap is adding them */
+}
+
+a:hover {
+  color: #0056b3; /* Add hover styles if needed */
+}

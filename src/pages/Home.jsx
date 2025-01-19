@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import ProjectCards from "../components/Credentials";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Link } from "react-router-dom";
+import "../styles/globrem.css";
+import dummy from '../assets/images/dummy.jpg';
 
 // Animation variants
 const animations = {
@@ -89,7 +91,7 @@ const HeroSection = () => {
       style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
     >
       {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-opacity-40"></div>
       
       <div className="relative z-10 max-w-4xl px-4 md:px-8">
         <h1 className="text-3xl md:text-4xl lg:text-5xl mb-4 font-bold leading-tight">
@@ -119,9 +121,9 @@ const PreInfoHome = () => {
   const { ref: textRef, inView: textInView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   const stats = useMemo(() => [
-    { value: "1,500+", label: "Complete Projects" },
-    { value: "450+", label: "Team Members" },
-    { value: "2,800+", label: "Satisfied Clients" },
+    { value: "xyz", label: "Complete Projects" },
+    { value: "abc", label: "Team Members" },
+    { value: "def", label: "Satisfied Clients" },
   ], []);
 
   return (
@@ -154,7 +156,7 @@ const PreInfoHome = () => {
           variants={animations.fadeInLeft}
         >
           <motion.img
-            src="https://via.placeholder.com/500x350"
+            src= { dummy }
             alt="Infrastructure"
             className="w-full rounded-lg shadow-lg"
             whileHover={{ scale: 1.05 }}
@@ -230,7 +232,7 @@ const PopularServiceHome = () => {
         <div className="lg:flex-1 min-w-[250px] lg:pr-8 text-center lg:text-left">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Domain of Expertise</h2>
           <p className="text-gray-300 mb-6 text-sm md:text-base">
-            We prioritize safe, reliable, and operationally efficient designs 
+            We prioritize safe, reliable and operationally efficient designs 
             tailored to your requirements.
           </p>
           <Link 
@@ -240,9 +242,10 @@ const PopularServiceHome = () => {
             Explore More
           </Link>
         </div>
-
+        <Link to="/ServicePage">
         <div className="lg:flex-[2] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
+    
             <motion.div
               key={index}
               className="bg-gray-800 p-6 md:p-8 rounded-lg text-center border border-gray-700 hover:bg-gray-700 transition-colors"
@@ -255,6 +258,7 @@ const PopularServiceHome = () => {
             </motion.div>
           ))}
         </div>
+        </Link>
       </div>
     </div>
   );
@@ -278,6 +282,12 @@ const ProjectsSection = () => {
     { 
       id: 3, 
       title: "Transport Hub", 
+      description: "Integrated transportation center", 
+      image: "https://via.placeholder.com/300" 
+    },
+    { 
+      id: 4, 
+      title: " Hub", 
       description: "Integrated transportation center", 
       image: "https://via.placeholder.com/300" 
     },
@@ -321,11 +331,13 @@ const ContactUsSecHome = () => {
           committed to live a lasting legacy, combining cutting edge technology
           and skilled resources.
         </p>
+        <Link to="/Contact">
         <button 
           className="bg-red-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg text-sm md:text-lg font-semibold hover:bg-red-700 transition-colors transform hover:scale-105 duration-300"
         >
           Contact Us
         </button>
+        </Link>
       </div>
     </section>
   );
@@ -434,8 +446,8 @@ const Home = () => {
         <PreInfoHome />
         <PopularServiceHome />
         <ProjectsSection />
-        <ContactUsSecHome />
         <ProjectCards />
+        <ContactUsSecHome />
         <SpeedInsights />
       </main>
 
